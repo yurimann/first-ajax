@@ -14,11 +14,11 @@ You will often hear this style of JavaScript-driven Asynchronous requests referr
 ## Instructions
 In today's assignment, you will write code exclusively for the client-side (browser). We have gone ahead and built a server for you to interact with. In the following few days, you will retake control over both the client and server-side code.
 
-You should fork, then clone the skeleton repository at:
-- `http://github.com/bitmakerlabs/ajax-intro
-When this assignment asks you a question, enter the answer on a new line directly below. This file should be called README.md and live at the top of the repository.
+You should fork, then clone this repository at:
+- `http://github.com/bitmakerlabs/first-ajax`
+Open up this file (README.md) in your, so that when it asks you a question, you can jump over and answer on a new line directly below. However, because this file is in Markdown format, it __reads__ best when viewed on the github repository site.
 
-The server you will be interacting with is:
+The server you will be interacting with is deployed at:
 - `http://bitmaker-api.herokuapp.com`
 
 The URLs within the server (AKA 'endpoints', AKA 'resources') we're going to work with are:
@@ -29,59 +29,56 @@ The URLs within the server (AKA 'endpoints', AKA 'resources') we're going to wor
 - `/time`
 - `/a_car`
 
-Each time you use one of these paths, you will have to use the fully-qualified URL. For example:
-- `http://bitmaker-api.herokuapp.com/count`
-- or
-- `http://bitmaker-api.herokuapp.com/ping`
+Each time you use one of these paths, you will have to use the fully-qualified URL. For example: `http://bitmaker-api.herokuapp.com/count`
 
 ## Step 0 - Setup and Knowledge Check
 - Consider disabling your browser extensions, as they might make unexpected and confusing HTTP requests. For Chrome users, the easiest way to do this is opening a "New Incognito Window" from the File menu and running your requests there.
-- Open your browsers "Developer Tools/Inspector". Navigate to the "Netowrk" tab. You should keep this open for the duration of the assignment.
+- Open your browsers "Developer Tools/Inspector". Navigate to the "Network" tab. This must be kept open for the duration of the assignment.
 
-###Knowledge Check
+### Knowledge Check
 In your browser's address bar, type the "root path" of the server we provided you, and hit enter. Inspect the request in the Network tab by clicking on it.
 1. What HTTP method did your browser use to make the request?
-2. How many milliseconds did it take your browser to complete the request?
+2. How many milliseconds did it take your browser to complete it?
 3. What HTTP status code did the server return? What does that mean?
-4. Was this an AJAX/Asynchronous request or a normal Synchronous request? How can you tell?
+4. Was this an AJAX/Asynchronous request or a normal Synchronous request?
 
 ## Step 1 - Your First AJAX Request
-We're going to use jQuery to make our AJAX requests. An easy, flexible, and powerful way to do this is using the `ajax` function inside jQuery. To invoke the `ajax` function, you call it on the `$` object, and pass in a JavaScript object as an argument. Every time we make an AJAX request, we will specify __4__ main attributes.
+We're going to use jQuery to make our AJAX requests. A flexible, and powerful way to do this is using the `ajax` function inside jQuery. To invoke the `ajax` function, you call it on the `$` object, and pass in a JavaScript object as an argument. Every time we make an AJAX request, that object will have __4__ main attributes.
 
 1. The __url__ ( e.g. 'http://fun.com/pets', '/pets', or 'pets' )
   - _Which server-side resource(s) is the request interacting with?_
 2. The __method__ ( e.g. 'GET', 'POST', 'PATCH', 'PUT', or 'DELETE' )
   - _What is the request trying to do?_
-3. The __data__ ( A JavaScript object e.g. {}, {water: 'wet'} )
+3. The __data__ ( A JavaScript object e.g. {}, {water: 'wet'}, or {clowns: 6, fun_level: 'poor'} )
   - _What information should the request send TO the server?_
 4. The __dataType__ ( e.g. 'text', 'html', 'json', or 'xml' )
   - _What type of data does the browser expect in response?_
 
-Here is the basic skeleton of an AJAX call. It is missing values for it's 4 attributes, but you can use it as a template for the practice sections:
+Here is a basic skeleton for an AJAX call. It is missing values for it's 4 attributes, but it makes a good template for the practice sections:
 ```javascript
 $.ajax({
-  url: ,
-  method: ,
-  data: ,
-  dataType:
+  url: _____,
+  method: _____,
+  data: _____,
+  dataType: _____
 });
 ```
 
-###Practice
+### Practice
 1. In your ajax.js file, build an AJAX request that:
-  - _retrieves the information at the root path of the server, sending an empty JavaScript object, and expects a text response._
-2. Wrap the request in a `$(document).ready`. Run it by reloading your page in the browser.
+  - _retrieves the information at the root path of the server, by sending an empty JavaScript object, and expecting a text response._
+2. Ensure the request is wrapped in a `$(document).ready`. Run it by reloading your page in the browser.
 3. What do you see in the Network tab of your Developer Tools? How does it differ from the request you made in Step 0?
 4. How is it similar to the request from Step 0?
 
-Congratulations! You've now made your first successful AJAX request!
+Congratulations! You've made your first successful AJAX request!
 
 ## Step 2 - Binding to A Click Event
-It can be useful to fire off an AJAX request as soon as the page is finished loading. However, it's more common for them to run as a result of a user taking action on your page. Currently, our AJAX requests run immediately on `$(document).ready`. We triggered it each time by refreshing the page. Let's separate the two events with a "click event handler" similar to the others you practiced this week.
+It can be useful to fire off an AJAX request as soon as the page is finished loading. However, it's more common for them to run as a result of a user taking action on your page. Currently, our AJAX request runs immediately on `$(document).ready`. We triggered it by refreshing the page. Let's separate the two events with a "click event handler" similar to the others you practiced this week.
 
-###Practice
+### Practice
 1. Add a `<button>` to the HTML page that says "Run the AJAX". Give it an id attribute.
-2. Create a 'click' event handler for the button, and move your AJAX call inside it.
+2. Create a `'click'` event handler for the button, and move your AJAX call inside it.
 3. Refresh your page to load the new JavaScript.
 4. Try clicking your button a few times! In your network tab, inspect the requests as they come in.
 
@@ -107,7 +104,7 @@ $.ajax({
 
 Let's switch to a URL that returns data in its response, and write a function to do something with it.
 
-###Practice
+### Practice
 1. Comment out your previous AJAX request so that it will not run
 2. Create a new AJAX request that retrieves the information at the `/ping` url (Send no data, expect text as a response). It should run when the same `<button>` from the last step is clicked.
 3. Open your Network tab, reload the page, and run your request.
@@ -132,7 +129,7 @@ $.ajax({
 });
 ```
 
-###Practice
+### Practice
 1. Modify your AJAX request so that it points to the `/pong` url. Note that it's now p-o-n-g not p-i-n-g. This will simulate a server error.
 2. Open your Network tab, reload the page, and run your request.
 3. What is the new HTTP status code?
@@ -154,7 +151,7 @@ $.ajax({
   //All I know is, it's over.
 });
 ```
-###Practice
+### Practice
 1. Add an `always` callback, and use console.log to output a message like "Hey the request finished!"
 
 ## Step 6 - All Together Now!
@@ -175,7 +172,7 @@ $.ajax({
 });
 ```
 
-###Practice
+### Practice
 1. Ensure that each of the `done`, `fail`, and `always` callbacks at least applies a meaningful console.log message.
 2. Switch back and forth between the `/ping` and `/pong` URLs, reloading the page each time. What do you see in your Developer Tools? What messages show up in your console?
 
@@ -184,7 +181,7 @@ You and your fellow classmates all been interacting with the same server, hosted
 
 To prove to you that you are all connected, we're going to change URL's once again.
 
-###Practice
+### Practice
 1. Comment out your second AJAX request
 2. Build a third AJAX request that retrieves the info at the `/count` URL. Again, send no data, and expect 'text' type data in response.
 3. Investigate your network tab. This is a shared count of the total number of bitmakers to ever visit this URL. Ask your neighbour what number they got and compare. Try refreshing and compare again!
@@ -203,7 +200,7 @@ $.ajax({
 
 These "request parameters" will be sent to our server, and may affect the response we get back. The contents of the `data` object can vary. Sometimes the values are hard-coded, while other times they are from a user typing in a form. Any piece of information we want to accompany our request should be encoded in this data object.
 
-###Practice
+### Practice
 1. Comment out your third AJAX request
 2. Build a fourth AJAX request that retrieves the info at the `/time` URL. Again, send no data, and expect 'text' type data in response. Refresh the page and inspect.
 3. Add a `done` callback and write the responseData to the `<body>` of the document.
@@ -215,7 +212,7 @@ These "request parameters" will be sent to our server, and may affect the respon
 ## Step 8 - Receiving HTML in the Response
 Until now, every response we've received from the server was a 'text' type response. It's only been a string that we can console.log, or write to our document. It's common for servers to respond with more complex types, such as 'html'. Let's switch to a URL that will give us an 'html' type response. We call this an HTML "fragment", because it is missing the `<html>`, `<head>`, and `<body>` tags, and just holds a small chunk of HTML markup.
 
-###Practice
+### Practice
 1. Comment out your fourth AJAX request
 2. Build a fifth AJAX request that retrieves the info at the `/a_car` URL. Expect 'html' type data in response. Your request does not need to send any data at this time. Refresh the page and inspect the response.
 3. What do you see in the Accepts header of the Request, and the Content-Type header of the response?
@@ -224,7 +221,7 @@ Until now, every response we've received from the server was a 'text' type respo
 ## Step 9 - Binding to A Click Event
 Currently, our AJAX requests run right away on `$(document).ready`. We've been triggering them each time by refreshing the page. Let's separate the two events with a "click event handler" that you practiced this week.
 
-###Practice
+### Practice
 1. Add an empty unordered list to the HTML page `<ul>`. Give it an id attribute.
 2. Add a `<button>` to the HTML page that says "Load Another Car". Give it an id attribute.
 3. Create a 'click' event handler for the button, and move your fifth AJAX call inside it.
