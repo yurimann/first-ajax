@@ -106,9 +106,9 @@ Let's switch to a URL that returns data in its response, and write a function to
 
 ### Practice
 1. Comment out your previous AJAX request so that it will not run
-2. Create a new AJAX request that retrieves the information at the `/ping` url (Send no data, expect text as a response). It should run when the same `<button>` from the last step is clicked.
+2. Create a new AJAX request that retrieves the information at the `/ping` url (Send no data, expect text as a response). It should run on the same `<button>` click event as before.
 3. Open your Network tab, reload the page, and run your request.
-4. Investigate the Response sub-tab, what is different between this request and the one in Step 1?
+4. Investigate the Response sub-tab, what is different between this request and the one to the "root path"?
 5. In a `done` callback, use console.log to write the responseData string to the console.
 6. Also in the `done` callback use jQuery to append the responseData string to the `<body>` element.
 
@@ -138,7 +138,7 @@ $.ajax({
 ## Step 5 - Tidy Up Time...
 Sometimes, there's code that needs to be run whether the request was a total success or a complete failure. You don't care about the outcome, but the request-response cycle has finished and there's cleanup work to do.
 
-Maybe you want to re-enable the submit button on a form, hide a spinning "loading" indicator, or tidy up some local data. It wouldn't be very D.R.Y. to duplicate this code in both the `done` and `fail` callbacks, so there's one final function you can chain onto `$.ajax` ... the `always` function.
+Maybe you want to re-enable the submit button on a form, hide a spinning "loading" indicator, or tidy up some local data. It wouldn't be very D.R.Y. to duplicate this code in both the `done` and `fail` callbacks, so there's one final thing you can chain onto `$.ajax` ... the `always` function.
 
 ```javascript
 $.ajax({
@@ -155,7 +155,7 @@ $.ajax({
 1. Add an `always` callback, and use console.log to output a message like "Hey the request finished!"
 
 ## Step 6 - All Together Now!
-So `$.ajax` requests will usually have a `done` callback, and they can use `fail` and `always` when appropriate. You should now have an AJAX request with a structure similar to this:
+So `$.ajax` requests will usually have a `done` callback, and they can add `fail` and `always` when appropriate. You should now have an AJAX request with a structure similar to this:
 
 ```javascript
 $.ajax({
@@ -174,19 +174,19 @@ $.ajax({
 
 ### Practice
 1. Ensure that each of the `done`, `fail`, and `always` callbacks at least applies a meaningful console.log message.
-2. Switch back and forth between the `/ping` and `/pong` URLs, reloading the page each time. What do you see in your Developer Tools? What messages show up in your console?
+2. Switch back and forth between the `/ping` and `/pong` URLs, reloading the page and running your request each time. What do you see in your Developer Tools? What messages show up in your console?
 
 ## Step 7 - The Hive Mind (Shared State)
-You and your fellow classmates all been interacting with the same server, hosted on Heroku. That's what makes today's assignment different from the Tic-Tac-Toe and Circle Games. The State (AKA memory, data, information) is stored on the _server_, not locally on your browser. Our Jazzy Front-End Applications can now speak to a server with a database, just like our Non-AJAX rails apps from weeks 3 and 4.
+You and your fellow classmates all been interacting with the same server, hosted on the internet, as a Heroku app. That's what makes today's assignment different from a standalone in-browser app or game. The State (AKA memory, data, information) is stored on the _server_, not just locally on your browser. Our Jazzy Front-End Applications can speak to a server with a database, just like our Non-AJAX Rails apps from weeks 3 and 4.
 
 To prove to you that you are all connected, we're going to change URL's once again.
 
 ### Practice
 1. Comment out your second AJAX request
-2. Build a third AJAX request that retrieves the info at the `/count` URL. Again, send no data, and expect 'text' type data in response.
-3. Investigate your network tab. This is a shared count of the total number of bitmakers to ever visit this URL. Ask your neighbour what number they got and compare. Try refreshing and compare again!
+2. Build a third AJAX request that retrieves the info at the `/count` URL. Again, bind it to the `<button>` click, send no data, and expect 'text' in response.
+3. Run your request and investigate your Network tab. This is a shared count of the total number of Bitmakers to ever visit this URL. Ask your neighbour what number they got and compare. Run your request a few times and compare again!
 
-## Step 7 - Sending Data with your Request
+## Step 8 - Sending Data with your Request
 It's time for our AJAX request to send information TO the server, in addition to getting responseData FROM the server. We do this by supplying a JavaScript object as `data` in our call to `$.ajax`. It is a set of key-value pairs and looks like this:
 
 ```
@@ -202,35 +202,30 @@ These "request parameters" will be sent to our server, and may affect the respon
 
 ### Practice
 1. Comment out your third AJAX request
-2. Build a fourth AJAX request that retrieves the info at the `/time` URL. Again, send no data, and expect 'text' type data in response. Refresh the page and inspect.
+2. Build a fourth AJAX request that retrieves the info at the `/time` URL. Again, bind it to the `<button>` click, send no data, and expect 'text' in response.
 3. Add a `done` callback and write the responseData to the `<body>` of the document.
-4. Modify the request to send a `timezone` as a piece of data (e.g. 'Europe/Sofia').
-5. Try sending a few different strings, and watch the response change. Some other valid timezones are: Europe/Athens, Europe/Lisbon, America/Mexico_City, Pacific/Honolulu, Asia/Kolkata, Pacific/Auckland
-6. Add a `fail` callback that writes an error message to the `<body>` of the document. What happens if you change your data to an invalid `timezone` such as 'pokeroo'?
+4. Run the request, and see the current server time get written to the page.
+5. Modify the request to send a `timezone` as a piece of data (e.g. 'Europe/Sofia').
+6. Try sending a few different strings, and watch the response change. Some other valid timezones are: Europe/Athens, Europe/Lisbon, America/Mexico_City, Pacific/Honolulu, Asia/Kolkata, Pacific/Auckland
 
-
-## Step 8 - Receiving HTML in the Response
+## Step 9 - Receiving HTML in the Response
 Until now, every response we've received from the server was a 'text' type response. It's only been a string that we can console.log, or write to our document. It's common for servers to respond with more complex types, such as 'html'. Let's switch to a URL that will give us an 'html' type response. We call this an HTML "fragment", because it is missing the `<html>`, `<head>`, and `<body>` tags, and just holds a small chunk of HTML markup.
 
 ### Practice
 1. Comment out your fourth AJAX request
-2. Build a fifth AJAX request that retrieves the info at the `/a_car` URL. Expect 'html' type data in response. Your request does not need to send any data at this time. Refresh the page and inspect the response.
+2. Build a fifth AJAX request that retrieves the info at the `/a_car` URL. Send no `data`, but expect 'html' type data in response. Refresh the page, click the `<button>`, and inspect the response.
 3. What do you see in the Accepts header of the Request, and the Content-Type header of the response?
-4. Add a `done` callback and write the responseData to the `<body>` of the document.
+4. Add a `done` callback and write the responseData to the `<body>` of the document. Test your request.
+5. Add an empty unordered list to the HTML page `<ul>`. Give it an id attribute.
+6. Change the `<button>` on the HTML page to say "Load Another Car".
+7. Modify the `done` handler so that it appends car `<li>`'s into the unordered list.
+8. Refresh your page, and try the button a few times! Open your Network tab and inspect the requests as they come in.
 
-## Step 9 - Binding to A Click Event
-Currently, our AJAX requests run right away on `$(document).ready`. We've been triggering them each time by refreshing the page. Let's separate the two events with a "click event handler" that you practiced this week.
+That's it, you're done! This is a very common way for modern web apps to work. Load an HTML document with JavaScript in the initial (non-AJAX) request. Bind your requests to events in a `$(document).ready`, then run AJAX requests when a user takes action.
 
-### Practice
-1. Add an empty unordered list to the HTML page `<ul>`. Give it an id attribute.
-2. Add a `<button>` to the HTML page that says "Load Another Car". Give it an id attribute.
-3. Create a 'click' event handler for the button, and move your fifth AJAX call inside it.
-4. Modify the `done` handler so that it appends new cars into the unordered list.
-5. Refresh your page, and try your new button a few times! Open your network tab and inspect the requests as they come in.
+Commit your code and this README.md file with your answers in it. Then push!
 
-That's it, you're done! Commit this README.md file with your answers in it, and push!
-
-### Stretch
-1. There's a hidden message at the '/pong' URL... did you find it?
-2. Return to Step 6, where you get the shared `/count`. This URL actually accepts a data parameter called 'amount'. What are the acceptable values for it? What does it do?
-3. Return to Step 7, where you send a timezone to the `/time` URL. Change the trigger for your AJAX request to button click event. Change from a hardcoded timezone parameter to accepting input from the user via a textbox.
+## Stretch
+1. There's a hidden message at the `/pong` URL... can you find it? Can you find a way to capture this text response and write it to the `<body>`? Hint: look deeper into the docs at http://api.jquery.com/jquery.ajax/
+2. Return to the `/count` request. This URL actually accepts a data parameter called `amount`. What are the acceptable values for it? What does it do?
+3. Return to the `/time` request. Bind this request to a new `<button>`'s click event. Change from a hardcoded `timezone` parameter to accepting input from the user via a textbox. Add a `fail` callback that writes an error message to the `<body>` of the document. What happens if your user enters an invalid `timezone` such as 'pokeroo'?
