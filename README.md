@@ -36,7 +36,7 @@ Each time you use one of these paths, you will have to use the fully-qualified U
 - Open your browser's "Developer Tools/Inspector". Navigate to the "Network" tab. This must be kept open for the duration of the assignment.
 
 ### Knowledge Check
-In your browser's address bar, type the "root path" of the server we provided you, and hit enter. Inspect the request in the Network tab by clicking on it.
+In your browser's address bar, type the "root path" of the server we have setup at http://bitmaker-api.herokuapp.com, and hit enter. Inspect the request in the Network tab by clicking on it.
 
 1. What HTTP method did your browser use to make the request?
 2. How many milliseconds did it take your browser to complete it?
