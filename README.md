@@ -33,7 +33,7 @@ Each time you use one of these paths, you will have to use the fully-qualified U
 
 ## Step 0 - Setup and Knowledge Check
 - Consider disabling your browser extensions, as they might make unexpected and confusing HTTP requests. For Chrome users, the easiest way to do this is opening a "New Incognito Window" from the File menu and running your requests there.
-- Open your browsers "Developer Tools/Inspector". Navigate to the "Network" tab. This must be kept open for the duration of the assignment.
+- Open your browser's "Developer Tools/Inspector". Navigate to the "Network" tab. This must be kept open for the duration of the assignment.
 
 ### Knowledge Check
 In your browser's address bar, type the "root path" of the server we provided you, and hit enter. Inspect the request in the Network tab by clicking on it.
