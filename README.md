@@ -189,7 +189,7 @@ To prove to you that you are all connected, we're going to change URL's once aga
 ## Step 8 - Sending Data with your Request
 It's time for our AJAX request to send information TO the server, in addition to getting responseData FROM the server. We do this by supplying a JavaScript object as `data` in our call to `$.ajax`. It is a set of key-value pairs and looks like this:
 
-```
+```javascript
 $.ajax({
   url: ,
   method: ,
