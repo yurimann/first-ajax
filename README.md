@@ -37,6 +37,7 @@ Each time you use one of these paths, you will have to use the fully-qualified U
 
 ### Knowledge Check
 In your browser's address bar, type the "root path" of the server we provided you, and hit enter. Inspect the request in the Network tab by clicking on it.
+
 1. What HTTP method did your browser use to make the request?
 2. How many milliseconds did it take your browser to complete it?
 3. What HTTP status code did the server return? What does that mean?
