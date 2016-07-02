@@ -16,7 +16,7 @@ In today's assignment, you will write code exclusively for the client-side (brow
 
 You should fork, then clone this repository at:
 - `http://github.com/bitmakerlabs/first-ajax`
-Open up this file (README.md) in your, so that when it asks you a question, you can jump over and answer on a new line directly below. However, because this file is in Markdown format, it __reads__ best when viewed on the github repository site.
+Open up this file (README.md) in your editor, so that when it asks you a question, you can __answer__ it below. However, because this file is in Markdown format, it __reads__ best when viewed on GitHub.
 
 The server you will be interacting with is deployed at:
 - `http://bitmaker-api.herokuapp.com`
@@ -177,7 +177,7 @@ $.ajax({
 2. Switch back and forth between the `/ping` and `/pong` URLs, reloading the page and running your request each time. What do you see in your Developer Tools? What messages show up in your console?
 
 ## Step 7 - The Hive Mind (Shared State)
-You and your fellow classmates all been interacting with the same server, hosted on the internet, as a Heroku app. That's what makes today's assignment different from a standalone in-browser app or game. The State (AKA memory, data, information) is stored on the _server_, not just locally on your browser. Our Jazzy Front-End Applications can speak to a server with a database, just like our Non-AJAX Rails apps from weeks 3 and 4.
+You and your fellow classmates have been interacting with the same server, hosted on the internet, as a Heroku app. That's what makes today's assignment different from a standalone in-browser app or game. The State (AKA memory, data, information) is stored on the _server_, not just locally on your browser. Jazzy Front-End Applications can speak to a server with a database, just like our Non-AJAX Rails apps from weeks 3 and 4.
 
 To prove to you that you are all connected, we're going to change URL's once again.
 
@@ -205,27 +205,27 @@ These "request parameters" will be sent to our server, and may affect the respon
 2. Build a fourth AJAX request that retrieves the info at the `/time` URL. Again, bind it to the `<button>` click, send no data, and expect 'text' in response.
 3. Add a `done` callback and write the responseData to the `<body>` of the document.
 4. Run the request, and see the current server time get written to the page.
-5. Modify the request to send a `timezone` as a piece of data (e.g. 'Europe/Sofia').
+5. Modify the request to send a `timezone` as a piece of data, for example: 'Europe/Sofia'.
 6. Try sending a few different strings, and watch the response change. Some other valid timezones are: Europe/Athens, Europe/Lisbon, America/Mexico_City, Pacific/Honolulu, Asia/Kolkata, Pacific/Auckland
 
 ## Step 9 - Receiving HTML in the Response
-Until now, every response we've received from the server was a 'text' type response. It's only been a string that we can console.log, or write to our document. It's common for servers to respond with more complex types, such as 'html'. Let's switch to a URL that will give us an 'html' type response. We call this an HTML "fragment", because it is missing the `<html>`, `<head>`, and `<body>` tags, and just holds a small chunk of HTML markup.
+Until now, every response we've received from the server was a 'text' type response. That is, just a string for us to console.log or write to our document. It's common for AJAX responses to contain more complex types, such as 'html'. Let's switch to a URL that will give us an 'html' type response. We call this an HTML "fragment", because it is missing the `<html>`, `<head>`, and `<body>` tags, and only holds a small chunk of HTML markup.
 
 ### Practice
 1. Comment out your fourth AJAX request
-2. Build a fifth AJAX request that retrieves the info at the `/a_car` URL. Send no `data`, but expect 'html' type data in response. Refresh the page, click the `<button>`, and inspect the response.
-3. What do you see in the Accepts header of the Request, and the Content-Type header of the response?
-4. Add a `done` callback and write the responseData to the `<body>` of the document. Test your request.
+2. Build a fifth AJAX request that retrieves the info at the `/a_car` URL. Send no `data`, but this time expect 'html' in response. Refresh the page, click the `<button>`, and inspect the response.
+3. Investigate the Request and Response "Headers" in your Network Tab. What is the 'Accepts' of the Request, and the 'Content-Type' of the response?
+4. Add a `done` callback and write the responseData to the `<body>` of the document. Test it out.
 5. Add an empty unordered list to the HTML page `<ul>`. Give it an id attribute.
 6. Change the `<button>` on the HTML page to say "Load Another Car".
 7. Modify the `done` handler so that it appends car `<li>`'s into the unordered list.
-8. Refresh your page, and try the button a few times! Open your Network tab and inspect the requests as they come in.
+8. Refresh your page, and try the button a few times!
 
 That's it, you're done! This is a very common way for modern web apps to work. Load an HTML document with JavaScript in the initial (non-AJAX) request. Bind your requests to events in a `$(document).ready`, then run AJAX requests when a user takes action.
 
 Commit your code and this README.md file with your answers in it. Then push!
 
 ## Stretch
-1. There's a hidden message at the `/pong` URL... can you find it? Can you find a way to capture this text response and write it to the `<body>`? Hint: look deeper into the docs at http://api.jquery.com/jquery.ajax/
+1. Return to the `/pong` request. There's a hidden message there... can you find it? Can you find a way to capture this text and write it to the `<body>`? Hint: look deeper into the docs at http://api.jquery.com/jquery.ajax/
 2. Return to the `/count` request. This URL actually accepts a data parameter called `amount`. What are the acceptable values for it? What does it do?
 3. Return to the `/time` request. Bind this request to a new `<button>`'s click event. Change from a hardcoded `timezone` parameter to accepting input from the user via a textbox. Add a `fail` callback that writes an error message to the `<body>` of the document. What happens if your user enters an invalid `timezone` such as 'pokeroo'?
