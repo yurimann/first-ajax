@@ -55,7 +55,7 @@ We're going to use jQuery to make our AJAX requests. A flexible, and powerful wa
 4. The __dataType__ ( e.g. 'text', 'html', 'json', or 'xml' )
   - _What type of data does the browser expect in response?_
 
-Here is a basic skeleton for an AJAX call. It is missing values for it's 4 attributes, but it makes a good template for the practice sections:
+Here is a basic skeleton for an AJAX call. It is missing values for its 4 attributes, but it makes a good template for the practice sections:
 ```javascript
 $.ajax({
   url: _____,
