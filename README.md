@@ -221,7 +221,7 @@ Until now, every response we've received from the server was a 'text' type respo
 7. Modify the `done` handler so that it appends car `<li>`'s into the unordered list.
 8. Refresh your page, and try the button a few times!
 
-That's it, you're done! This is a very common way for modern web apps to work. First, load an HTML document with some linked up JavaScript in an initial (non-AJAX) request. Second, bind AJAX requests as event handlers in a `$(document).ready`. Third, run those AJAX requests when a user takes action (i.e. `click`).
+That's it, you're done! This is a very common way for modern web apps to work. First, load an HTML document with some linked up JavaScript in an initial (non-AJAX) request. Second, bind AJAX requests as event handlers in a `$(document).ready`. Third, run those AJAX requests when a user takes action (i.e. `click`). Fourth, receive a complex `dataType` (html or other) and use the `responseData` to modify the HTML document.
 
 Commit your code and this README.md file with your answers in it. Then push!
 
