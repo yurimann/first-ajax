@@ -227,6 +227,6 @@ That's it, you're done! This is a very common way for modern web apps to work. F
 Commit your code and this README.md file with your answers in it. Then push!
 
 ## Stretch
-1. Return to the `/pong` request. There's a hidden message there... can you find it? Can you find a way to capture this text and write it to the `<body>`? Hint: Since this request fails, you'll need to modify the method signature of your callback to be `.fail(function( jqXHR, textStatus, errorThrown ));`. Try putting a breakpoint here in your fail callback... Take a look around at those newly captured variables...
+1. Return to the `/pong` request. There's a hidden message there... can you find it? Can you find a way to capture this text and write it to the `<body>`? Hint: Since this request fails, you'll need to modify the method signature of your `.fail` callback to be `function( jqXHR, textStatus, errorThrown )`. Try putting a breakpoint inside your fail callback... Use it to inspect those newly captured variables...
 2. Return to the `/count` request. This URL actually accepts a data parameter called `amount`. What are the acceptable values for it? What does it do?
 3. Return to the `/time` request. Bind this request to a new `<button>`'s click event. Change from a hardcoded `timezone` parameter to accepting input from the user via a textbox. Add a `fail` callback that writes an error message to the `<section>`. Test it by entering an invalid `timezone` such as 'pokeroo'?
