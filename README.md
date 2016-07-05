@@ -33,10 +33,11 @@ Each time you use one of these paths, you will have to use the fully-qualified U
 
 ## Step 0 - Setup and Knowledge Check
 - Consider disabling your browser extensions, as they might make unexpected and confusing HTTP requests. For Chrome users, the easiest way to do this is opening a "New Incognito Window" from the File menu and running your requests there.
-- Open your browsers "Developer Tools/Inspector". Navigate to the "Network" tab. This must be kept open for the duration of the assignment.
+- Open your browser's "Developer Tools/Inspector". Navigate to the "Network" tab. This must be kept open for the duration of the assignment.
 
 ### Knowledge Check
-In your browser's address bar, type the "root path" of the server we provided you, and hit enter. Inspect the request in the Network tab by clicking on it.
+In your browser's address bar, type the "root path" of the server we have setup at http://bitmaker-api.herokuapp.com, and hit enter. Inspect the request in the Network tab by clicking on it.
+
 1. What HTTP method did your browser use to make the request?
 2. How many milliseconds did it take your browser to complete it?
 3. What HTTP status code did the server return? What does that mean?
@@ -54,7 +55,7 @@ We're going to use jQuery to make our AJAX requests. A flexible, and powerful wa
 4. The __dataType__ ( e.g. 'text', 'html', 'json', or 'xml' )
   - _What type of data does the browser expect in response?_
 
-Here is a basic skeleton for an AJAX call. It is missing values for it's 4 attributes, but it makes a good template for the practice sections:
+Here is a basic skeleton for an AJAX call. It is missing values for its 4 attributes, but it makes a good template for the practice sections:
 ```javascript
 $.ajax({
   url: _____,
@@ -189,7 +190,7 @@ To prove to you that you are all connected, we're going to change URL's once aga
 ## Step 8 - Sending Data with your Request
 It's time for our AJAX request to send information TO the server, in addition to getting responseData FROM the server. We do this by supplying a JavaScript object as `data` in our call to `$.ajax`. It is a set of key-value pairs and looks like this:
 
-```
+```javascript
 $.ajax({
   url: ,
   method: ,
