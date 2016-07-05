@@ -19,7 +19,7 @@ You should fork, then clone this repository at:
 Open up this file (README.md) in your editor, so that when it asks you a question, you can __answer__ it below. However, because this file is in Markdown format, it __reads__ best when viewed on GitHub.
 
 The server you will be interacting with is deployed at:
-- `http://bitmaker-api.herokuapp.com`
+- `http://first-ajax-api.herokuapp.com/`
 
 The URLs within the server (AKA 'endpoints', AKA 'resources') we're going to work with are:
 - `/` <- the root path
@@ -29,14 +29,14 @@ The URLs within the server (AKA 'endpoints', AKA 'resources') we're going to wor
 - `/time`
 - `/a_car`
 
-Each time you use one of these paths, you will have to use the fully-qualified URL. For example: `http://bitmaker-api.herokuapp.com/count`
+Each time you use one of these paths, you will have to use the fully-qualified URL. For example: `http://first-ajax-api.herokuapp.com/count`
 
 ## Step 0 - Setup and Knowledge Check
 - Consider disabling your browser extensions, as they might make unexpected and confusing HTTP requests. For Chrome users, the easiest way to do this is opening a "New Incognito Window" from the File menu and running your requests there.
 - Open your browser's "Developer Tools/Inspector". Navigate to the "Network" tab. This must be kept open for the duration of the assignment.
 
 ### Knowledge Check
-In your browser's address bar, type the "root path" of the server we have setup at http://bitmaker-api.herokuapp.com, and hit enter. Inspect the request in the Network tab by clicking on it.
+In your browser's address bar, type the "root path" of the server we have setup at http://first-ajax-api.herokuapp.com/, and hit enter. Inspect the request in the Network tab by clicking on it.
 
 1. What HTTP method did your browser use to make the request?
 2. How many milliseconds did it take your browser to complete it?
@@ -50,7 +50,7 @@ We're going to use jQuery to make our AJAX requests. A flexible, and powerful wa
   - _Which server-side resource(s) is the request interacting with?_
 2. The __method__ ( e.g. 'GET', 'POST', 'PATCH', 'PUT', or 'DELETE' )
   - _What is the request trying to do?_
-3. The __data__ ( A JavaScript object e.g. {}, {water: 'wet'}, or {clowns: 6, fun_level: 'poor'} )
+3. The __data__ ( A JavaScript object e.g. { }, {water: 'wet'}, or {clowns: 6, fun_level: 'poor'} )
   - _What information should the request send TO the server?_
 4. The __dataType__ ( e.g. 'text', 'html', 'json', or 'xml' )
   - _What type of data does the browser expect in response?_
@@ -68,9 +68,10 @@ $.ajax({
 ### Practice
 1. In your ajax.js file, build an AJAX request that:
   - _retrieves the information at the root path of the server, by sending an empty JavaScript object, and expecting a text response._
-2. Ensure the request is wrapped in a `$(document).ready`. Run it by reloading your page in the browser.
-3. What do you see in the Network tab of your Developer Tools? How does it differ from the request you made in Step 0?
-4. How is it similar to the request from Step 0?
+2. Ensure the request is wrapped in a `$(document).ready`.
+3. Ensure your Network Tab is open in Developer tools, and run the request by reloading your page.
+4. What are the values in the "Method" and "Status" columns? Compare these values to Step 0.
+5. Inspect the request. What are the values in the "Type" and "Initiator" columns? Compare these values to Step 0.
 
 Congratulations! You've made your first successful AJAX request!
 
@@ -78,7 +79,7 @@ Congratulations! You've made your first successful AJAX request!
 It can be useful to fire off an AJAX request as soon as the page is finished loading. However, it's more common for them to run as a result of a user taking action on your page. Currently, our AJAX request runs immediately on `$(document).ready`. We triggered it by refreshing the page. Let's separate the two events with a "click event handler" similar to the others you practiced this week.
 
 ### Practice
-1. Add a `<button>` to the HTML page that says "Run the AJAX". Give it an id attribute.
+1. Add a `<button>` that says "Run AJAX Request to Root" to the Step 1 and 2 `<section>`
 2. Create a `'click'` event handler for the button, and move your AJAX call inside it.
 3. Refresh your page to load the new JavaScript.
 4. Try clicking your button a few times! In your network tab, inspect the requests as they come in.
@@ -106,12 +107,12 @@ $.ajax({
 Let's switch to a URL that returns data in its response, and write a function to do something with it.
 
 ### Practice
-1. Comment out your previous AJAX request so that it will not run
-2. Create a new AJAX request that retrieves the information at the `/ping` url (Send no data, expect text as a response). It should run on the same `<button>` click event as before.
+1. Add a new `<button>` that says "Run AJAX Request to Ping/Pong" to the Step 3,4,5,6 `<section>`
+2. Create a new AJAX request bound to the `<button>` that retrieves the information at the `/ping` url (Send no data, expect text as a response).
 3. Open your Network tab, reload the page, and run your request.
-4. Investigate the Response sub-tab, what is different between this request and the one to the "root path"?
+4. Investigate the Response sub-tab, clicking through "Preview" and "Response". What is different between this request and the one to the "root path"?
 5. In a `done` callback, use console.log to write the responseData string to the console.
-6. Also in the `done` callback use jQuery to append the responseData string to the `<body>` element.
+6. Also in the `done` callback use jQuery to append the responseData string to the `<section>` element.
 
 ## Step 4 - When Things Go Wrong...
 Just like any HTTP request, AJAX requests don't always work out. You might have the `url` wrong, be sending the wrong `data`, or perhaps your user just entered a subway tunnel and the internet cuts out. Sometimes, it is important to anticipate this situation and handle the outcome in a graceful way.
@@ -134,7 +135,7 @@ $.ajax({
 1. Modify your AJAX request so that it points to the `/pong` url. Note that it's now p-o-n-g not p-i-n-g. This will simulate a server error.
 2. Open your Network tab, reload the page, and run your request.
 3. What is the new HTTP status code?
-4. Add a `fail` callback, and use jQuery to append a nice message to the `<body>` telling the user that you'll try harder next time.
+4. Add a `fail` callback, and use jQuery to append a nice message to the `<section>` telling the user that you'll try harder next time.
 
 ## Step 5 - Tidy Up Time...
 Sometimes, there's code that needs to be run whether the request was a total success or a complete failure. You don't care about the outcome, but the request-response cycle has finished and there's cleanup work to do.
@@ -183,9 +184,10 @@ You and your fellow classmates have been interacting with the same server, hoste
 To prove to you that you are all connected, we're going to change URL's once again.
 
 ### Practice
-1. Comment out your second AJAX request
-2. Build a third AJAX request that retrieves the info at the `/count` URL. Again, bind it to the `<button>` click, send no data, and expect 'text' in response.
-3. Run your request and investigate your Network tab. This is a shared count of the total number of Bitmakers to ever visit this URL. Ask your neighbour what number they got and compare. Run your request a few times and compare again!
+1. Add a new `<button>` that says "Run AJAX Request to Count" to the Step 7 `<section>`
+2. Create a new AJAX request bound to the `<button>` that retrieves the information at the `/count` url (Send no data, expect text as a response).
+3. Run your request and investigate your Network tab. This is a shared count of the total number of Bitmakers to ever visit this URL.
+4. In a `done` callback, write the responseData to the Step 7 `<section>`. Ask your neighbour what number they got and compare. Run your request a few times and compare again!
 
 ## Step 8 - Sending Data with your Request
 It's time for our AJAX request to send information TO the server, in addition to getting responseData FROM the server. We do this by supplying a JavaScript object as `data` in our call to `$.ajax`. It is a set of key-value pairs and looks like this:
@@ -202,9 +204,9 @@ $.ajax({
 These "request parameters" will be sent to our server, and may affect the response we get back. The contents of the `data` object can vary. Sometimes the values are hard-coded, while other times they are from a user typing in a form. Any piece of information we want to accompany our request should be encoded in this data object.
 
 ### Practice
-1. Comment out your third AJAX request
-2. Build a fourth AJAX request that retrieves the info at the `/time` URL. Again, bind it to the `<button>` click, send no data, and expect 'text' in response.
-3. Add a `done` callback and write the responseData to the `<body>` of the document.
+1. Add a new `<button>` that says "Run AJAX Request to Time" to the Step 8 `<section>`
+2. Create a new AJAX request bound to the `<button>` that retrieves the information at the `/time` url (Send no data, expect text as a response).
+3. Add a `done` callback and write the responseData to the Step 8 `<section>`.
 4. Run the request, and see the current server time get written to the page.
 5. Modify the request to send a `timezone` as a piece of data, for example: 'Europe/Sofia'.
 6. Try sending a few different strings, and watch the response change. Some other valid timezones are: Europe/Athens, Europe/Lisbon, America/Mexico_City, Pacific/Honolulu, Asia/Kolkata, Pacific/Auckland
@@ -213,20 +215,18 @@ These "request parameters" will be sent to our server, and may affect the respon
 Until now, every response we've received from the server was a 'text' type response. That is, just a string for us to console.log or write to our document. It's common for AJAX responses to contain more complex types, such as 'html'. Let's switch to a URL that will give us an 'html' type response. We call these small chunks of HTML markup "fragments", because they are often missing the `<html>`, `<head>`, and `<body>` tags.
 
 ### Practice
-1. Comment out your fourth AJAX request
-2. Build a fifth AJAX request that retrieves the info at the `/a_car` URL. Send no `data`, but this time expect 'html' in response. Refresh the page, click the `<button>`, and inspect the response.
+1. Add a new `<button>` that says "Run AJAX Request to A Car " to the Step 9 `<section>`
+2. Build a new AJAX request bound to the `<button>` that retrieves the info at the `/a_car` URL. Send no `data`, but __this time expect 'html' in response__. Refresh the page, click the `<button>`, and inspect the response.
 3. Investigate the Request and Response "Headers" in your Network Tab. What is the 'Accepts' of the Request, and the 'Content-Type' of the response?
-4. Add a `done` callback and write the responseData to the `<body>` of the document. Test it out.
-5. Add an empty unordered list to the HTML page `<ul>`. Give it an id attribute.
-6. Change the `<button>` on the HTML page to say "Load Another Car".
-7. Modify the `done` handler so that it appends car `<li>`'s into the unordered list.
-8. Refresh your page, and try the button a few times!
+4. Add an empty unordered list `<ul>` to the section. Give it an id attribute.
+5. Add a `done` callback that writes the responseData to the unordered list inside the section.
+6. Refresh your page, and try the button a few times!
 
 That's it, you're done! This is a very common way for modern web apps to work. First, load an HTML document with some linked up JavaScript in an initial (non-AJAX) request. Second, bind AJAX requests as event handlers in a `$(document).ready`. Third, run those AJAX requests when a user takes action (i.e. `click`). Fourth, receive a complex `dataType` (html or other) and use the `responseData` to modify the HTML document.
 
 Commit your code and this README.md file with your answers in it. Then push!
 
 ## Stretch
-1. Return to the `/pong` request. There's a hidden message there... can you find it? Can you find a way to capture this text and write it to the `<body>`? Hint: look deeper into the docs at http://api.jquery.com/jquery.ajax/
+1. Return to the `/pong` request. There's a hidden message there... can you find it? Can you find a way to capture this text and write it to the `<body>`? Hint: Since this request fails, you'll need to modify the method signature of your callback to be `.fail(function( jqXHR, textStatus, errorThrown ));`. Try putting a breakpoint here in your fail callback... Take a look around at those newly captured variables...
 2. Return to the `/count` request. This URL actually accepts a data parameter called `amount`. What are the acceptable values for it? What does it do?
-3. Return to the `/time` request. Bind this request to a new `<button>`'s click event. Change from a hardcoded `timezone` parameter to accepting input from the user via a textbox. Add a `fail` callback that writes an error message to the `<body>` of the document. What happens if your user enters an invalid `timezone` such as 'pokeroo'?
+3. Return to the `/time` request. Bind this request to a new `<button>`'s click event. Change from a hardcoded `timezone` parameter to accepting input from the user via a textbox. Add a `fail` callback that writes an error message to the `<section>`. Test it by entering an invalid `timezone` such as 'pokeroo'?
