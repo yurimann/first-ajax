@@ -210,7 +210,7 @@ These "request parameters" will be sent to our server, and may affect the respon
 3. Add a `done` callback and write the responseData to the Step 8 `<section>`.
 4. Run the request, and see the current server time get written to the page.
 5. Modify the request to send a `timezone` as a piece of data, for example: 'Europe/Sofia'.
-6. Try sending a few different strings, and watch the response change. Some other valid timezones are: Europe/Athens, Europe/Lisbon, America/Mexico_City, Pacific/Honolulu, Asia/Kolkata, Pacific/Auckland
+6. Try changing 'Europe/Sofia' to a different time zone and see what the time is in that part of the world! Some other valid timezones are: 'America/Mexico_City', or 'Pacific/Honolulu', or 'Asia/Kolkata'
 
 ## Step 9 - Receiving HTML in the Response
 Until now, every response we've received from the server was a 'text' type response. That is, just a string for us to console.log or write to our document. It's common for AJAX responses to contain more complex types, such as 'html'. Let's switch to a URL that will give us an 'html' type response. We call these small chunks of HTML markup "fragments", because they are often missing the `<html>`, `<head>`, and `<body>` tags.
