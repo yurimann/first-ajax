@@ -111,7 +111,7 @@ Let's switch to a URL that returns data in its response, and write a function to
 1. Add a new `<button>` that says "Run AJAX Request to Ping/Pong" to the Step 3,4,5,6 `<section>`
 2. Create a new AJAX request bound to the `<button>` that retrieves the information at the `/ping` url (Send no data, expect text as a response).
 3. Open your Network tab, reload the page, and run your request.
-4. Investigate the Response sub-tab, clicking through "Preview" and "Response". What is different between this request and the one to the "root path"?
+4. Click on the request. This displays a detailed view of this one request. Investigate the "Response" and "Preview" sub-tabs. What was the content of the response?
 5. In a `done` callback, use console.log to write the responseData string to the console.
 6. Also in the `done` callback use jQuery to append the responseData string to the `<section>` element.
 
