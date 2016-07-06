@@ -80,8 +80,8 @@ Congratulations! You've made your first successful AJAX request!
 It can be useful to fire off an AJAX request as soon as the page is finished loading. However, it's more common for them to run as a result of a user taking action on your page. Currently, our AJAX request runs immediately on `$(document).ready`. We triggered it by refreshing the page. Let's separate the two events with a "click event handler" similar to the others you practiced this week.
 
 ### Practice
-1. Add a `<button>` that says "Run AJAX Request to Root" to the Step 1 and 2 `<section>`
-2. Create a `'click'` event handler for the button, and move your AJAX call inside it.
+1. In your index.html file, add a `<button>` that says "Run AJAX Request to Root" to the Step 1 and 2 `<section>`
+2. Back in ajax.js, Create a `'click'` event handler for the button, and move your AJAX call inside it.
 3. Refresh your page to load the new JavaScript.
 4. Try clicking your button a few times! In your network tab, inspect the requests as they come in.
 
