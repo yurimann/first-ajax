@@ -66,12 +66,13 @@ $.ajax({
 ```
 
 ### Practice
-1. In your ajax.js file, build an AJAX request that:
+1. Open the index.html file in your browser.
+2. In the linked ajax.js file, build an AJAX request that:
   - _retrieves the information at the root path of the server, by sending an empty JavaScript object, and expecting a text response._
-2. Ensure the request is wrapped in a `$(document).ready`.
-3. Ensure your Network Tab is open in Developer tools, and run the request by reloading your page.
-4. What are the values in the "Method" and "Status" columns? Compare these values to Step 0.
-5. Inspect the request. What are the values in the "Type" and "Initiator" columns? Compare these values to Step 0.
+3. Ensure the request is wrapped in a `$(document).ready`.
+4. Ensure your Network Tab is open in Developer tools, and run the request by reloading your page.
+5. What are the values in the "Method" and "Status" columns? Compare these values to Step 0.
+6. What are the values in the "Type" and "Initiator" columns? Compare these values to Step 0.
 
 Congratulations! You've made your first successful AJAX request!
 
