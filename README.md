@@ -41,7 +41,7 @@ In your browser's address bar, type the "root path" of the server we have setup 
 1. What HTTP method did your browser use to make the request?
 2. How many milliseconds did it take your browser to complete it?
 3. What HTTP status code did the server return? What does that mean?
-4. Was this an AJAX/Asynchronous request or a normal Synchronous request?
+4. Look at the "Initiator" and "Type" columns. Was this an xhr/JavaScript/AJAX request or a normal browser request?
 
 ## Step 1 - Your First AJAX Request
 We're going to use jQuery to make our AJAX requests. A flexible, and powerful way to do this is using the `ajax` function inside jQuery. To invoke the `ajax` function, you call it on the `$` object, and pass in a JavaScript object as an argument. Every time we make an AJAX request, that object will have __4__ main attributes.
