@@ -66,7 +66,7 @@ $.ajax({
 ```
 
 ### Practice
-1. Open the index.html file in your browser.
+1. Open the `index.html` file from the cloned project in your browser.
 2. In the linked ajax.js file, build an AJAX request that:
   - _retrieves the information at the root path of the server, by sending an empty JavaScript object, and expecting a text response._
 3. Ensure the request is wrapped in a `$(document).ready`.
